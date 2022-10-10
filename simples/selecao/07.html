@@ -38,23 +38,23 @@
     function controllerMaior() {
         var valor1 = parseFloat(document.getElementById("valor1").value);
         var valor2 = parseFloat(document.getElementById("valor2").value);
-        var valor = 0;
+        
 
-        var resposta = verificaMaior(valor);
+        var resposta = verificaMaior(valor1, valor2);
         saidaDados("Maior = " + resposta);
     }
 
-    function verificaMaior(){
-        
+    function verificaMaior(valor1=0, valor2=0) {
+         
         if (valor1>valor2){
             valor = valor1;
-        } else {
+        }
+         else {
             valor = valor2;
         }
-
         return valor;           
     }
-    
+
 
     function saidaDados(texto_saida) {
         document.getElementById("saidaTexto").innerHTML = texto_saida;
