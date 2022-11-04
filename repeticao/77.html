@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -12,38 +12,30 @@
 
 <body>
     <section class="container">
-        <h3>
-            77) Fazer um algoritmo que:
-            Leia um número indeterminado de linhas contendo cada uma a idade de um indivíduo.
-            Calcule e escreva a idade média deste grupo de indivíduos.”
-        </h3>
+        <p>
+            77) Fazer um algoritmo que:<br>
+            • Leia um número indeterminado de linhas contendo cada uma a idade de um indivíduo.<br>
+            • Calcule e escreva a idade média deste grupo de indivíduos.
+        </p>
+
         <form>
-            <div class="form-groups py-3" >
-                <label for="idade">Digite a idade e ao final pressione enter para adicionar a idade. Ao terminar a lista clique em Média para obter o resultado</label>
-                <input type="number" step="1" name="idade" id="idade" class="form-control">
+            <div class="mb-3">
+                <label for="idade" class="form-label">Idade</label>
+                <input type="number" class="form-control" id="idade" aria-describedby="idadeHelp">
+                <div id="idadeHelp" class="form-text">Entre com valores de 1 a 120</div>
             </div>
-
-            <!-- <div class="form-groups py-4">
-                <button type="button" class="btn btn-outline-danger" onclick="adicionaIdade()">Adiciona</button>
+            <!-- <div class="mb-3">
+                <button type="button" class="btn btn-primary" onclick="controllerIdade()">Finalizar</button>
             </div> -->
-
-            <div class="form-groups py-4">
-                <button type="button" class="btn btn-outline-danger" onclick="controllerIdade()">Média</button>
-            </div>
         </form>
-        <div class="py-4 text-center">
-            <span id="saidaTexto" class="py-6"></span>
-        </div>
-        
+
+        <p id="contador"></p>
+
+        <div id="saidaResultado"></div>
 
     </section>
 </body>
 
-<script src="js/77.js">
-    
-
-
-</script>
-
+<script src="js/repeticao_77-2.js"></script>
 
 </html>

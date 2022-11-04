@@ -1,41 +1,54 @@
-12345678901234567890
-// !(function () {          
-//     adicionaIdade();
-// })()
+let idades = []
 
-// function adicionaIdade(idades = [],idade =0) { 
-//     document.getElementById("idade").addEventListener('keypress', function (e) {        
-//         if (e.key === 'Enter') {
-//             idade = parseInt(document.getElementById("idade").value);                      
-//             idades.push(idade); 
-//         }
-//         return idades;
-//     });    
-// }
+!(function () {
+    capturaDados();
+})();
 
-function adicionaIdade() {
-    let idades = [];
-    let idade = parseInt(document.getElementById("idade").value);
-    idades.push(idade);
-    return idades;
+function capturaDados() {
+    document.querySelector("#idade")
+        .addEventListener("keypress", (e) => {
+            console.log(e); //Mosta o evento no console
+            if (e.key == "Enter") {
+                if (e.target.value == "0") {
+                    controllerIdade();
+                } else {
+                    addIdade(e.target.value);
+                    mostracont(idades.length);
+                }
+                e.target.value = ""; // limpa os valores;
+                e.target.focus = true;
+                e.preventDefault(); //cancela o enter de envio do form
+            }
+        })
 }
 
 function controllerIdade() {
-    let mediaidade = 0;
-    let calculaidade = adicionaIdade();
-    let resposta = calculaMedia(calculaidade,mediaidade);
-
-    saidaDados("a média de idades é = " + resposta);
+    //let idade = document.querySelector("#idade");
+    let media = mediaIdade();
+    saidaResultado("Media: " + media.toFixed(2));
 }
 
-function calculaMedia(calculaidade = [], mediaidade = 0) {
-    for (var i =1; i<calculaidade.length; i++) {
-        mediaidade += (calculaidade [i]);
+function addIdade(idade) {
+    let newIdade = parseInt(idade);
+    if (!Number.isNaN(newIdade)) {
+        idades.push(newIdade);
     }
-        return mediaidade /i;
 }
 
-function saidaDados(texto) {
-        document.getElementById('saidaTexto').innerHTML = texto;
+function mediaIdade() {
+    let somatorio = 0;
+    let cont = idades.length;
+    for (var index = 0; index < cont; index++) {
+        somatorio += idades[index];
+    }
+    return somatorio / cont;
 }
 
+//View -----------------
+function saidaResultado(texto) {
+    document.querySelector("#saidaResultado").innerHTML = texto;
+}
+
+function mostracont(cont) {
+    document.querySelector("#contador").innerHTML = "<b>" + cont + "</b>"
+}
